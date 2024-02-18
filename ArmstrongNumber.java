@@ -1,0 +1,40 @@
+public class ArmstrongNumber{
+
+    public static void main(String[] args) {
+        // Example: Check if 170 is an Armstrong number
+        int numberToCheck = 170;
+
+        if (isArmstrongNumber(numberToCheck)) {
+            System.out.println(numberToCheck + " is an Armstrong number.");
+        } else {
+            System.out.println(numberToCheck + " is not an Armstrong number.");
+        }
+    }
+
+    // Function to check if a number is an Armstrong number
+    public static boolean isArmstrongNumber(int number) {
+        int originalNumber = number;
+        int numberOfDigits = countDigits(number);
+        int sum = 0;
+
+        while (number != 0) {
+            int digit = number % 10;
+            sum += Math.pow(digit, numberOfDigits);
+            number /= 10;
+        }
+
+        return sum == originalNumber;
+    }
+
+    // Function to count the number of digits in a given number
+    public static int countDigits(int number) {
+        int count = 0;
+
+        while (number != 0) {
+            number /= 10;
+            count++;
+        }
+
+        return count;
+    }
+}
